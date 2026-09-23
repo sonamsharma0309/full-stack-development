@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieVault | Cinema Collection</title>
+
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background: #080808;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+
+            height: 75px;
+
+            padding: 0 60px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: rgba(8, 8, 8, 0.95);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        nav h2 {
+
+            font-size: 24px;
+
+            letter-spacing: 3px;
+        }
+
+
+        nav h2 span {
+
+            color: #e50914;
+        }
+
+
+        nav a {
+
+            color: #aaa;
+
+            text-decoration: none;
+
+            margin-left: 30px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            color: white;
+        }
+
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            height: 90vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding-left: 10%;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #080808 5%,
+                    rgba(8, 8, 8, 0.8),
+                    rgba(8, 8, 8, 0.1)
+                ),
+
+                url(
+                    "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+                );
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        .hero small {
+
+            color: #e50914;
+
+            letter-spacing: 5px;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 80px;
+
+            line-height: 0.95;
+
+            max-width: 700px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero p {
+
+            max-width: 550px;
+
+            color: #bbb;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =========================
+           MOVIES SECTION
+        ========================= */
+
+        .movies {
+
+            width: 90%;
+
+            margin: auto;
+
+            padding: 140px 0;
+        }
+
+
+        .movies-title {
+
+            margin-bottom: 70px;
+        }
+
+
+        .movies-title h2 {
+
+            font-size: 50px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .movies-title p {
+
+            color: #777;
+
+            font-size: 16px;
+        }
+
+
+
+        /* ==================================================
+           MAIN HORIZONTAL AREA
+        ================================================== */
+
+        .movie-area {
+
+            display: grid;
+
+            grid-template-columns: 58% 42%;
+
+            gap: 50px;
+
+            align-items: start;
+        }
+
+
+
+        /* ==================================================
+           LEFT HORIZONTAL SCROLL AREA
+        ================================================== */
+
+        .movie-scroll {
+
+            height: 620px;
+
+            overflow-x: auto;
+
+            overflow-y: hidden;
+
+            position: relative;
+
+            border-radius: 28px;
+
+            scrollbar-width: none;
+        }
+
+
+        .movie-scroll::-webkit-scrollbar {
+
+            display: none;
+        }
+
+
+
+        /* ==================================================
+           HORIZONTAL TRACK
+
+           IMPORTANT:
+           Height is large so that cards get
+           enough horizontal scrolling space.
+        ================================================== */
+
+        .movie-track {
+
+            width: 5000px;
+
+            height: 600px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            position: relative;
+        }
+
+
+
+        /* ==================================================
+           MOVIE CARD
+
+           THIS IS THE IMPORTANT PART.
+
+           Every card has:
+
+              position: sticky;
+              left: 0;
+
+           So when next card reaches left side,
+           it sticks at the same place and covers
+           the previous card.
+        ================================================== */
+
+        .movie-card {
+
+            width: 700px;
+
+            min-width: 700px;
+
+            height: 600px;
+
+            margin-right: 700px;
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            position: sticky;
+
+            left: 0;
+
+            top: 0;
+
+            background-size: cover;
+
+            background-position: center;
+
+            flex-shrink: 0;
+
+            box-shadow:
+
+                0 30px 80px rgba(0, 0, 0, 0.7);
+        }
+
+
+
+        /* ==================================================
+           CARD OVERLAY
+        ================================================== */
+
+        .movie-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+
+                    0deg,
+
+                    rgba(0, 0, 0, 0.95),
+
+                    rgba(0, 0, 0, 0.10)
+
+                );
+
+            z-index: 1;
+        }
+
+
+
+        /* ==================================================
+           CARD CONTENT
+        ================================================== */
+
+        .movie-content {
+
+            position: absolute;
+
+            left: 55px;
+
+            bottom: 55px;
+
+            z-index: 2;
+
+            max-width: 600px;
+        }
+
+
+        .movie-number {
+
+            color: #e50914;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .movie-content h2 {
+
+            font-size: 65px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .movie-info {
+
+            color: #ddd;
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .movie-content p {
+
+            color: #bbb;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+
+            max-width: 570px;
+
+            margin-bottom: 25px;
+        }
+
+
+
+        /* ==================================================
+           BUTTON
+        ================================================== */
+
+        .watch {
+
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            background: white;
+
+            color: black;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .watch:hover {
+
+            background: #e50914;
+
+            color: white;
+
+            transform: translateY(-4px);
+        }
+
+
+
+        /* ==================================================
+           CARD 1
+        ================================================== */
+
+        .spiderman {
+
+            background-image:
+
+                url(
+                    "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+                );
+
+            z-index: 1;
+        }
+
+
+
+        /* ==================================================
+           CARD 2
+        ================================================== */
+
+        .interstellar {
+
+            background-image:
+
+                url(
+                    "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                );
+
+            z-index: 2;
+        }
+
+
+
+        /* ==================================================
+           CARD 3
+        ================================================== */
+
+        .batman {
+
+            background-image:
+
+                url(
+                    "https://image.tmdb.org/t/p/original/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg"
+                );
+
+            z-index: 3;
+        }
+
+
+
+        /* ==================================================
+           CARD 4
+        ================================================== */
+
+        .inception {
+
+            background-image:
+
+                url(
+                    "https://image.tmdb.org/t/p/original/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg"
+                );
+
+            z-index: 4;
+        }
+
+
+
+        /* ==================================================
+           CARD 5
+        ================================================== */
+
+        .avengers {
+
+            background-image:
+
+                url(
+                    "https://image.tmdb.org/t/p/original/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+                );
+
+            z-index: 5;
+        }
+
+
+
+        /* ==================================================
+           RIGHT SIDE CONTENT
+           STATIC
+        ================================================== */
+
+        .static-content {
+
+            height: 600px;
+
+            position: sticky;
+
+            top: 110px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding-left: 30px;
+        }
+
+
+        .static-content small {
+
+            color: #e50914;
+
+            letter-spacing: 5px;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .static-content h2 {
+
+            font-size: 65px;
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+        }
+
+
+        .static-content .info {
+
+            color: #ddd;
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .static-content p {
+
+            color: #bbb;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+
+            max-width: 450px;
+
+            margin-bottom: 25px;
+        }
+
+
+
+        /* ==================================================
+           HORIZONTAL SCROLL INDICATOR
+        ================================================== */
+
+        .scroll-indicator {
+
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .scroll-indicator span {
+
+            color: white;
+        }
+
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+
+            height: 300px;
+
+            background: #050505;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+
+        footer h2 {
+
+            font-size: 35px;
+
+            color: #777;
+        }
+
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+
+            nav {
+
+                padding: 0 20px;
+            }
+
+
+            nav div {
+
+                display: none;
+            }
+
+
+            .hero {
+
+                padding-left: 30px;
+
+                padding-right: 30px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 50px;
+            }
+
+
+            .movies {
+
+                width: 90%;
+            }
+
+
+            .movie-area {
+
+                display: block;
+            }
+
+
+            .movie-scroll {
+
+                height: 500px;
+            }
+
+
+            .movie-track {
+
+                height: 500px;
+
+                width: 4000px;
+            }
+
+
+            .movie-card {
+
+                width: 85vw;
+
+                min-width: 85vw;
+
+                height: 500px;
+
+                margin-right: 85vw;
+            }
+
+
+            .movie-content {
+
+                left: 30px;
+
+                bottom: 30px;
+
+                max-width: 80%;
+            }
+
+
+            .movie-content h2 {
+
+                font-size: 42px;
+            }
+
+
+            .movie-content p {
+
+                font-size: 15px;
+            }
+
+
+            .static-content {
+
+                position: static;
+
+                height: auto;
+
+                padding: 60px 0;
+            }
+
+
+            .static-content h2 {
+
+                font-size: 45px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+
+    <nav>
+
+        <h2>
+
+            MOVIE<span>VAULT</span>
+
+        </h2>
+
+
+        <div>
+
+            <a href="#">
+
+                HOME
+
+            </a>
+
+
+            <a href="#movies">
+
+                MOVIES
+
+            </a>
+
+
+            <a href="#">
+
+                ABOUT
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+        <small>
+
+            THE CINEMA COLLECTION
+
+        </small>
+
+
+        <h1>
+
+            Stories<br>
+
+            Worth Watching.
+
+        </h1>
+
+
+        <p>
+
+            Enter a world of unforgettable characters,
+            impossible adventures and stories that stay
+            with you long after the credits.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MOVIES
+    ================================================== -->
+
+    <section class="movies" id="movies">
+
+
+        <div class="movies-title">
+
+            <h2>
+
+                Featured Movies
+
+            </h2>
+
+
+            <p>
+
+                Scroll right and watch the movies stack.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             MAIN AREA
+        ================================================== -->
+
+        <div class="movie-area">
+
+
+
+            <!-- ==================================================
+                 LEFT SIDE
+            ================================================== -->
+
+            <div class="movie-scroll" id="movieScroll">
+
+
+                <div class="movie-track">
+
+
+
+                    <!-- ==================================================
+                         SPIDER-MAN
+                    ================================================== -->
+
+                    <div class="movie-card spiderman">
+
+
+                        <div class="movie-content">
+
+                            <div class="movie-number">
+
+                                01 / SUPERHERO
+
+                            </div>
+
+
+                            <h2>
+
+                                Spider-Man
+
+                            </h2>
+
+
+                            <div class="movie-info">
+
+                                2021
+                                &nbsp; • &nbsp;
+                                Action
+                                &nbsp; • &nbsp;
+                                Adventure
+
+                            </div>
+
+
+                            <p>
+
+                                With great power comes great
+                                responsibility. A young hero
+                                discovers that protecting the
+                                people he loves comes with
+                                impossible choices.
+
+                            </p>
+
+
+                            <a href="#" class="watch">
+
+                                Explore Movie →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         INTERSTELLAR
+                    ================================================== -->
+
+                    <div class="movie-card interstellar">
+
+
+                        <div class="movie-content">
+
+                            <div class="movie-number">
+
+                                02 / SCI-FI
+
+                            </div>
+
+
+                            <h2>
+
+                                Interstellar
+
+                            </h2>
+
+
+                            <div class="movie-info">
+
+                                2014
+                                &nbsp; • &nbsp;
+                                Sci-Fi
+                                &nbsp; • &nbsp;
+                                Drama
+
+                            </div>
+
+
+                            <p>
+
+                                Humanity searches for a new
+                                home beyond the stars while
+                                one astronaut faces a journey
+                                where time, space and love collide.
+
+                            </p>
+
+
+                            <a href="#" class="watch">
+
+                                Explore Movie →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         BATMAN
+                    ================================================== -->
+
+                    <div class="movie-card batman">
+
+
+                        <div class="movie-content">
+
+                            <div class="movie-number">
+
+                                03 / DARK HERO
+
+                            </div>
+
+
+                            <h2>
+
+                                The Batman
+
+                            </h2>
+
+
+                            <div class="movie-info">
+
+                                2022
+                                &nbsp; • &nbsp;
+                                Crime
+                                &nbsp; • &nbsp;
+                                Thriller
+
+                            </div>
+
+
+                            <p>
+
+                                A dark city. A mysterious killer.
+                                A masked detective follows a trail
+                                of clues that reveals secrets
+                                buried beneath Gotham.
+
+                            </p>
+
+
+                            <a href="#" class="watch">
+
+                                Explore Movie →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         INCEPTION
+                    ================================================== -->
+
+                    <div class="movie-card inception">
+
+
+                        <div class="movie-content">
+
+                            <div class="movie-number">
+
+                                04 / MIND
+
+                            </div>
+
+
+                            <h2>
+
+                                Inception
+
+                            </h2>
+
+
+                            <div class="movie-info">
+
+                                2010
+                                &nbsp; • &nbsp;
+                                Sci-Fi
+                                &nbsp; • &nbsp;
+                                Thriller
+
+                            </div>
+
+
+                            <p>
+
+                                What if you could enter someone's
+                                dreams? A skilled team attempts
+                                the impossible while the line
+                                between dreams and reality disappears.
+
+                            </p>
+
+
+                            <a href="#" class="watch">
+
+                                Explore Movie →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         AVENGERS
+                    ================================================== -->
+
+                    <div class="movie-card avengers">
+
+
+                        <div class="movie-content">
+
+                            <div class="movie-number">
+
+                                05 / MARVEL
+
+                            </div>
+
+
+                            <h2>
+
+                                Avengers
+
+                            </h2>
+
+
+                            <div class="movie-info">
+
+                                2019
+                                &nbsp; • &nbsp;
+                                Action
+                                &nbsp; • &nbsp;
+                                Superhero
+
+                            </div>
+
+
+                            <p>
+
+                                Earth's greatest heroes come
+                                together for one final battle
+                                that will change everything
+                                they thought they knew.
+
+                            </p>
+
+
+                            <a href="#" class="watch">
+
+                                Explore Movie →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 RIGHT STATIC CONTENT
+            ================================================== -->
+
+            <div class="static-content">
+
+
+                <small>
+
+                    THE CINEMA COLLECTION
+
+                </small>
+
+
+                <h2>
+
+                    Stories<br>
+
+                    Worth Watching.
+
+                </h2>
+
+
+                <div class="info">
+
+                    05 MOVIES
+                    &nbsp; • &nbsp;
+                    ONE COLLECTION
+
+                </div>
+
+
+                <p>
+
+                    Scroll towards the right to explore
+                    our collection of unforgettable movies.
+                    Each new movie will slide over the
+                    previous one.
+
+                </p>
+
+
+                <a href="#" class="watch">
+
+                    Explore Collection →
+
+                </a>
+
+
+                <div class="scroll-indicator">
+
+                    <span>→</span>
+
+                    SCROLL RIGHT
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <h2>
+
+            THE END... OR IS IT?
+
+        </h2>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+         
+         Mouse wheel ko horizontal scroll mein convert
+         karta hai.
+    ================================================== -->
+
+    <script>
+
+
+        const movieScroll =
+            document.getElementById("movieScroll");
+
+
+        movieScroll.addEventListener(
+            "wheel",
+            function(event) {
+
+                event.preventDefault();
+
+
+                movieScroll.scrollLeft +=
+                    event.deltaY;
+
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
