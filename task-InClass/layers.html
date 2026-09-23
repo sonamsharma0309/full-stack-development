@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #para{
+            color:blue;
+        }
+        p{
+            color:red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p id="para">Hello World!</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @layer special, base;
+        @layer base{
+            .para{
+                font-size: 30px;
+                color: red;
+            }
+        }
+        @layer special{
+            .highlight-para{
+                font-size: 45px;
+                color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p class="para highlight-para ">HI!!!!!!</p>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-size: 30px;
+            text-align: center;
+            background-color:burlywood;
+            font-family:cursive;
+            
+        }
+        button:hover{
+            background-color: black;
+        }
+        input[type=checkbox]{
+            height: 50px;
+            width: 50px;
+        }
+        input:checked{
+            accent-color:red;
+        }
+        #myId{
+            color: red;
+        }
+        .myClass{
+            color: green;
+            text-shadow: 1px 1px 0px black;
+        }
+        h2{
+            color:aquamarine;
+            font-size: 80px;
+        }
+        input[type=email]{
+            border-radius: 15px;
+            background-color:bisque;
+            font-weight: bolder;
+        }
+        input[type=password]{
+            border-radius: 15px;
+            background-color:darkkhaki;
+            font-weight: bolder;
+
+        }
+        li[data=null]{
+            background-color:brown;
+        }
+        #ele{
+            color:rgb(58, 137, 137);
+        }
+        #uni{
+            color: blueviolet;
+        }
+        #com{
+            color: chocolate;
+        }
+        #pse{
+            color: crimson;
+        }
+        #udo{
+            color:darkgoldenrod
+        }
+        section h3{
+            color:blueviolet;
+        }
+
+        section>h3{
+            color:blue;
+        }
+        h3+p{
+            color:yellow;
+            font-size: 20px;
+        }
+        h3~p{
+            color:deepskyblue;
+        } 
+         
+    </style>
+</head>
+<body>
+    <h2 class="myClass">SELECTORS</h2>           
+    <ul>
+        <li id="uni">Universal</li>
+        <li id="myId">id</li>
+        <li class="myClass">class</li>
+        <li id="ele">element</li>
+        <li data="null">attribute</li>
+        <li id="com">combinators</li>
+        <li id="pse">pseudo class</li>
+        <li id="udo">pseudo element</li>
+    </ul>
+    <input type ="email" placeholder="email"/><br/>
+    <input type ="password" placeholder="password"/><br/>
+    <button> click me!</button>
+    
+
+    <section>
+        <h3>COMBINATORS!</h3>
+        <p> explaination </p><br/>
+        
+        
+    </section>
+
+</body>
+</html>

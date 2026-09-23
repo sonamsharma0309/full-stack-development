@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+
+            --primary-color:rgb(139, 56, 70);
+            --text-size: 30px;
+        }
+        .container{
+            background-color: var(--primary-color);
+            display:grid;
+            outline: 1px solid black;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            height: 500px;
+            width: 500px;
+        } 
+        .container>div{
+
+            font-size: calc(var(--text-size) * 2);
+            outline: 1px dashed black;
+        }
+        .parent{
+            --primary-color:rgb(61, 7, 16);
+            display: grid;
+            background-color: rgb(139, 56, 70);
+            grid-template-columns: subgrid;
+            grid-template-rows: subgrid;
+            grid-column: 1/3;
+            grid-row: 1/3;
+        }
+        .child{
+            background-color: var(--primary-color);
+            color:white;
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+        #box2{
+            background-color: white;
+            grid-column: 3/4;
+        }
+        #box3{
+            background-color: white;
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+    </style>
+</head>
+<body>
+    <div class ="container"> 
+        <div class="parent">
+            <div class="child">
+                
+            </div>
+        </div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+</body>
+</html>

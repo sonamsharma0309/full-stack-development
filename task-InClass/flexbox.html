@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display:flex;
+            justify-content: space-between;
+            flex-direction: row;
+            height: 90vh;
+            outline: 3px solid black ;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .container>div{
+            color:aliceblue;
+            width:150px;
+            height: 100px;
+            background-color:rgb(112, 156, 141) ;
+            color:white;
+            height: 100px;
+            align-content: center;
+            text-align: center;
+            
+        }
+        #box1{
+            flex-basis: 150px;
+            background-color:rgb(127, 158, 37 );
+            flex-grow: 0;
+            flex-shrink: 0;
+            /* flex: 2 2 150px;    //flex-basis,grow,shrink all three write in one line */      
+        }
+        #box2{
+            flex-basis: 150px;
+            background-color:rgb(14, 180, 12);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        #box3{
+            flex-basis: 150px;
+            background-color:rgb(119, 112, 156);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        #box4{
+            flex-basis: 150px;
+            background-color:rgb(185, 34, 17);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        #box5{
+            flex-basis: 150px;
+            background-color:rgb(115, 212, 114);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        #box6{
+            flex-basis: 150px;
+            background-color:rgb(146, 128, 234);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        #box7{
+            flex-basis: 150px;
+            background-color:rgb(112, 88, 85);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div id = "box1">1</div>
+    <div id = "box2">2</div>
+    <div id = "box3">3</div>
+    <div id = "box4">4</div>
+    <div id = "box5">5</div>
+    <div id = "box6">6</div>
+    <div id = "box7">7</div>
+
+    
+
+    
+
+    </div>
+</body>
+</html>

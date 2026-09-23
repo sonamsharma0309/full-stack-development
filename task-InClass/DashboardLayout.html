@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#f5f6fa;
+        }
+
+        .layout{
+            display:flex;
+        }
+
+        .sidebar{
+            width:220px;
+            height:100vh;
+            background:#242943;
+            color:white;
+            padding:25px 15px;
+        }
+
+        .sidebar h2{
+            margin-bottom:25px;
+            padding-left:10px;
+        }
+
+        .sidebar p{
+            padding:13px 10px;
+            margin-bottom:5px;
+            border-radius:4px;
+        }
+
+        .sidebar p:hover{
+            background:#3b4165;
+        }
+
+        .content{
+            width:100%;
+            padding:30px;
+        }
+
+        .header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:30px;
+        }
+
+        .header h1{
+            margin-bottom:5px;
+        }
+
+        .stats{
+            display:flex;
+            gap:20px;
+        }
+
+        .stat-box{
+            background:white;
+            width:24%;
+            padding:22px;
+            border-radius:8px;
+            box-shadow:0 2px 6px #ddd;
+        }
+
+        .stat-box h3{
+            color:#777;
+            font-size:16px;
+        }
+
+        .stat-box h2{
+            margin:12px 0;
+        }
+
+        .increase{
+            color:#16833b;
+        }
+
+        .order-box{
+            background:white;
+            margin-top:30px;
+            padding:25px;
+            border-radius:8px;
+            box-shadow:0 2px 6px #ddd;
+        }
+
+        table{
+            width:100%;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#f1f2f6;
+        }
+
+        th,td{
+            padding:12px;
+            text-align:left;
+            border-bottom:1px solid #e5e5e5;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+
+        <p>Dashboard</p>
+        <p>Customers</p>
+        <p>Products</p>
+        <p>Orders</p>
+        <p>Account</p>
+    </div>
+
+    <div class="content">
+
+        <div class="header">
+            <div>
+                <h1>Overview</h1>
+                <p>Welcome to your admin panel</p>
+            </div>
+
+            <p>ANSH DAYAL</p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h3>Total Customers</h3>
+                <h2>1380</h2>
+                <p class="increase">+14%</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Total Products</h3>
+                <h2>425</h2>
+                <p class="increase">+10%</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Total Orders</h3>
+                <h2>825</h2>
+                <p class="increase">+18%</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Total Revenue</h3>
+                <h2>₹278500</h2>
+                <p class="increase">+21%</p>
+            </div>
+
+        </div>
+
+        <div class="order-box">
+
+            <h2>Latest Orders</h2>
+
+            <table>
+
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>42</td>
+                    <td>Riya</td>
+                    <td>₹1500</td>
+                    <td>Delivered</td>
+                </tr>
+
+                <tr>
+                    <td>46</td>
+                    <td>Neha</td>
+                    <td>₹2800</td>
+                    <td>Processing</td>
+                </tr>
+
+                <tr>
+                    <td>12</td>
+                    <td>Kavya</td>
+                    <td>₹950</td>
+                    <td>Shipped</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
