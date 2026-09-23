@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Layout</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(148, 38, 56);
+            padding: 30px;
+        }
+
+        .news {
+            background-color: white;
+            padding: 20px;
+            width: 800px;
+            margin: auto;
+            border: 3px solid black;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+
+        .article {
+            background-color: white;
+            overflow: auto;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .article img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        #div1 img {
+            float: left;
+            margin-right: 15px;
+        }
+
+        #div2 img {
+            float: right;
+            margin-left: 15px;
+        }
+
+        .text {
+            background-color: white;
+            color: black;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .title {
+            background-color: white;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="news">
+
+        <div class="heading">
+            DAILY NEWS
+        </div>
+
+        <div class="article" id="div1">
+            <img src="https://picsum.photos/200/150" alt="Image 1">
+
+            <div class="text">
+                <div class="title">Beautiful Random Image</div>
+
+                This is a random image used for our newspaper-style
+                article. The image is placed on the left side and the
+                text automatically comes beside it. This is similar
+                to the way images and text are arranged in newspapers.
+            </div>
+        </div>
+
+
+        <div class="article" id="div2">
+            <img src="https://picsum.photos/200/150" alt="Image 2">
+
+            <div class="text">
+                <div class="title">Another News Article</div>
+
+                Here we have another image, but this time the image
+                is placed on the right side. The text appears on the
+                left side of the image, giving the page a newspaper
+                type of appearance.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

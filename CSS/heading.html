@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        input:focus {
+            border: 2px solid blue;
+            background-color: lightblue;
+        }
+
+        input[type="checkbox"]:checked {
+            accent-color: green;
+        }
+
+        input:required {
+            border-left: 5px solid orange;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:disabled {
+            background-color: gray;
+        }
+
+        input:enabled {
+            background-color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <label>Name:</label>
+        <input type="text" required>
+
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" required>
+
+        <br><br>
+
+        <label>
+            <input type="checkbox">
+            I agree
+        </label>
+
+        <br><br>
+
+        <input type="text" value="Disabled" disabled>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

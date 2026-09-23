@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Meesho</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial;
+            background-color:#f2f2f2;
+        }
+
+
+        .header{
+
+            background-color:#e91e63;
+            color:white;
+
+            padding:15px;
+        }
+
+        .logo{
+
+            font-size:30px;
+            font-weight:bold;
+            display:inline-block;
+        }
+
+        .search{
+
+            width:350px;
+            padding:8px;
+            margin-left:40px;
+        }
+
+        .menu{
+
+            float:right;
+            margin-top:8px;
+        }
+
+        .menu a{
+
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+        }
+
+        /* Banner */
+
+        .banner{
+
+            background-color:#ffd6e7;
+            text-align:center;
+            padding:40px;
+        }
+
+        .banner h1{
+
+            color:#e91e63;
+        }
+
+        .banner p{
+
+            margin-top:10px;
+        }
+
+        /* Products */
+
+        .heading{
+
+            text-align:center;
+            margin:30px;
+        }
+
+        .products{
+
+            text-align:center;
+        }
+
+        .card{
+
+            display:inline-block;
+
+            width:220px;
+
+            background:white;
+
+            margin:15px;
+
+            padding:15px;
+
+            border-radius:10px;
+
+            box-shadow:0px 0px 5px gray;
+        }
+
+        .card img{
+
+            width:180px;
+            height:220px;
+
+            border-radius:10px;
+        }
+
+        .price{
+
+            color:#e91e63;
+            font-weight:bold;
+            margin:10px;
+        }
+
+        button{
+
+            background:#e91e63;
+
+            color:white;
+
+            border:none;
+
+            padding:10px 20px;
+
+            border-radius:5px;
+
+            cursor:pointer;
+        }
+
+        button:hover{
+
+            background:#c2185b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <span class="logo">Meesho</span>
+        <input class="search" type="text" placeholder="Search Products">
+        <span class="menu">
+
+            <a href="#">Home</a>
+            <a href="#">Women</a>
+            <a href="#">Men</a>
+            <a href="#">Kids</a>
+
+        </span>
+
+    </div>
+
+    <div class="banner">
+
+        <h1>Big Fashion Sale</h1>
+
+        <p>Up To 70% OFF</p>
+
+    </div>
+
+    <h2 class="heading">Trending Products</h2>
+
+    <div class="products">
+
+        <div class="card">
+
+            <img src="https://picsum.photos/180/220?1">
+
+            <h3>T-Shirt</h3>
+
+            <p class="price">₹499</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://picsum.photos/180/220?2">
+
+            <h3>Watch</h3>
+
+            <p class="price">₹899</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://picsum.photos/180/220?3">
+
+            <h3>Shoes</h3>
+
+            <p class="price">₹1299</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://picsum.photos/180/220?4">
+
+            <h3>Bag</h3>
+
+            <p class="price">₹799</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

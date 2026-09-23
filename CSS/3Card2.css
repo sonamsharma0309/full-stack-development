@@ -1,0 +1,118 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.pricing{
+    display:flex;
+    gap:35px;
+}
+
+.card{
+    width:320px;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    overflow:hidden;
+}
+
+.top{
+    background:#e9ebf3;
+    text-align:center;
+    padding:35px 20px;
+}
+
+.top h2{
+    margin-bottom:15px;
+    color:#222;
+}
+
+.top p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.icon{
+    font-size:70px;
+    color:#2f3c8d;
+}
+
+.content{
+    padding:25px;
+    text-align:center;
+}
+
+.content p{
+    margin:18px 0;
+    color:#444;
+}
+
+.content hr{
+    border:none;
+    border-top:1px solid #ddd;
+}
+
+.content h1{
+    color:#ff5b00;
+    font-size:55px;
+    margin-top:25px;
+}
+
+.content span{
+    color:#444;
+}
+
+button{
+    margin-top:25px;
+    padding:15px 35px;
+    border:none;
+    background:#243b8b;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.premium-top{
+    background:#28357c;
+    color:white;
+    position:relative;
+}
+
+.white{
+    color:white;
+}
+
+.premium-top h2,
+.premium-top p{
+    color:white;
+}
+
+.orange{
+    background:#ff6200;
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    right:-35px;
+    background:#ff7b00;
+    color:white;
+    transform:rotate(45deg);
+    width:120px;
+    padding:5px;
+    font-size:12px;
+}

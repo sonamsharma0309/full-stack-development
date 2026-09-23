@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sticky Stacking Cards</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1ea;
+            color: #222;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            background: #ffffff;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 60px;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #222;
+            margin-left: 25px;
+        }
+
+        /* HERO */
+
+        .hero {
+            height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        /* CARD SECTION */
+
+        .cards-section {
+            width: 85%;
+            margin: auto;
+
+            padding-bottom: 150px;
+        }
+
+        .cards-section h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+
+        /* CARD */
+
+        .card {
+            height: 500px;
+
+            border-radius: 30px;
+
+            padding: 50px;
+
+            margin-bottom: 100px;
+
+            position: sticky;
+
+            top: 100px;
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+
+        /* Different card positions */
+
+        .card:nth-child(1) {
+            background: #ffd6a5;
+            z-index: 1;
+        }
+
+        .card:nth-child(2) {
+            background: #caffbf;
+            z-index: 2;
+        }
+
+        .card:nth-child(3) {
+            background: #bde0fe;
+            z-index: 3;
+        }
+
+        .card:nth-child(4) {
+            background: #ffc8dd;
+            z-index: 4;
+        }
+
+
+        .card-number {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            max-width: 600px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #444;
+        }
+
+
+        /* BUTTON */
+
+        .btn {
+            width: fit-content;
+
+            padding: 12px 25px;
+
+            border-radius: 30px;
+
+            background: #222;
+            color: white;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            background: #444;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            height: 300px;
+
+            background: #222;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .cards-section {
+                width: 90%;
+            }
+
+            .card {
+                height: 450px;
+                padding: 30px;
+            }
+
+            .card h3 {
+                font-size: 40px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <h2>STUDIO</h2>
+
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Work</a>
+            <a href="#">About</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Scroll & Discover</h1>
+
+        <p>
+            Scroll down and watch how each card smoothly
+            slides over the previous one.
+        </p>
+
+    </section>
+
+
+    <!-- CARDS -->
+
+    <section class="cards-section">
+
+        <h2>Our Ideas</h2>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                01 / DESIGN
+            </div>
+
+            <div>
+
+                <h3>Creative Design</h3>
+
+                <p>
+                    Beautiful interfaces are created by combining
+                    simple layouts, typography and thoughtful spacing.
+                </p>
+
+            </div>
+
+            <a href="#" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                02 / CODE
+            </div>
+
+            <div>
+
+                <h3>Clean Code</h3>
+
+                <p>
+                    Good code should be simple, readable and easy
+                    to maintain. HTML and CSS can create powerful
+                    visual experiences.
+                </p>
+
+            </div>
+
+            <a href="#" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                03 / EXPERIENCE
+            </div>
+
+            <div>
+
+                <h3>User Experience</h3>
+
+                <p>
+                    A great website is not only about appearance.
+                    It should also feel smooth and intuitive while
+                    users interact with it.
+                </p>
+
+            </div>
+
+            <a href="#" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+
+
+        </div>
+
+
+    </section>
+
+
+    <footer>
+
+        <h2>Thanks for scrolling </h2>
+
+    </footer>
+
+
+</body>
+</html>

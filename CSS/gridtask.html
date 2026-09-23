@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Design</title>
+
+    <style>
+        .container {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 150px 250px 150px;
+
+            grid-template-areas:
+                "header header"
+                "main sidebar"
+                "footer footer";
+
+            gap: 10px;
+        }
+
+        .container > div {
+            font-size: 30px;
+            outline: 1px dashed black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .one {
+            grid-area: header;
+        }
+
+        .two {
+            grid-area: main;
+        }
+
+        .three {
+            grid-area: sidebar;
+        }
+
+        .four {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+        <div class="four">4</div>
+    </div>
+
+</body>
+</html>
