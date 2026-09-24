@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Store</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font: 14px Arial;
+            background: #f8fafc;
+            color: #111827;
+        }
+
+        nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav h2 {
+            color: #2563eb;
+        }
+
+        nav input {
+            width: 300px;
+            padding: 9px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 25px;
+            padding: 25px;
+        }
+
+        aside {
+            background: white;
+            padding: 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        aside label {
+            display: block;
+            margin: 12px 0;
+            color: #6b7280;
+        }
+
+        aside button,
+        .card button {
+            background: #2563eb;
+            color: white;
+            border: 0;
+            padding: 9px;
+            border-radius: 5px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px #ddd;
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card img:hover {
+            transform: scale(1.04);
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .category {
+            color: #6b7280;
+        }
+
+        .rating {
+            color: #f59e0b;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        del {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            padding: 4px;
+        }
+
+        .sale {
+            background: #dc2626;
+        }
+
+        .new {
+            background: #16a34a;
+        }
+
+        .card button:hover {
+            background: #1d4ed8;
+        }
+
+        @media(max-width:1023px) {
+            .main {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:639px) {
+            nav input {
+                width: 150px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .main {
+                padding: 15px;
+            }
+        }
+
+        @media(min-width:1280px) {
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>ShopKart</h2>
+        <input type="text" placeholder="Search products">
+        <span>🛒 👤</span>
+    </nav>
+
+    <div class="main">
+
+        <aside>
+            <h3>Filters</h3>
+
+            <b>Category</b>
+
+            <label>
+                <input type="checkbox"> Shoes
+            </label>
+
+            <label>
+                <input type="checkbox"> Clothing
+            </label>
+
+            <label>
+                <input type="checkbox"> Bags
+            </label>
+
+            <label>
+                <input type="checkbox"> Accessories
+            </label>
+
+            <b>Price</b>
+
+            <label>
+                <input type="checkbox"> ₹500 - ₹1,500
+            </label>
+
+            <label>
+                <input type="checkbox"> ₹1,500 - ₹3,000
+            </label>
+
+            <button>Apply</button>
+        </aside>
+
+
+        <section>
+
+            <div class="top">
+                <b>Products</b>
+
+                <select>
+                    <option>Sort by</option>
+                    <option>Price</option>
+                </select>
+            </div>
+
+
+            <div class="products">
+
+                <div class="card">
+                    <span class="badge sale">SALE</span>
+
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+
+                    <span class="category">Shoes</span>
+
+                    <h3>Red Sports Shoes</h3>
+
+                    <div class="price">
+                        ₹1,999 <del>₹2,499</del>
+                    </div>
+
+                    <button>Add to Cart</button>
+                </div>
+
+
+                <div class="card">
+                    <span class="badge new">NEW</span>
+
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+
+                    <span class="category">Clothing</span>
+
+                    <h3>White T-Shirt</h3>
+
+                    <div class="price">
+                        ₹799 <del>₹999</del>
+                    </div>
+
+                    <button>Add to Cart</button>
+                </div>
+
+
+                <div class="card">
+
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400">
+
+                    <span class="category">Bags</span>
+
+                    <h3>Leather Handbag</h3>
+
+                    <div class="price">
+                        ₹1,499 <del>₹1,899</del>
+                    </div>
+
+                    <button>Add to Cart</button>
+                </div>
+
+
+                <div class="card">
+
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+
+                    <span class="category">Accessories</span>
+
+                    <h3>Classic Watch</h3>
+
+                    <div class="price">
+                        ₹2,499 <del>₹3,000</del>
+                    </div>
+
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>
