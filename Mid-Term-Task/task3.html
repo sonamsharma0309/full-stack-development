@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Analytics Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#F1F5F9] font-['Inter'] text-[#0F172A]">
+
+    <div class="min-h-screen flex">
+
+        <aside class="hidden md:flex w-[240px] bg-[#0F172A] text-[#CBD5E1] p-5 flex-col sticky top-0 h-screen">
+
+            <h2 class="text-lg font-bold text-white mb-8">
+                AdminPro
+            </h2>
+
+            <div class="space-y-2 text-sm">
+
+                <a href="#" class="block bg-[#4F46E5] text-white px-4 py-3 rounded-lg">
+                    Dashboard
+                </a>
+
+                <a href="#" class="block px-4 py-3 rounded-lg hover:bg-slate-800">
+                    Analytics
+                </a>
+
+                <a href="#" class="block px-4 py-3 rounded-lg hover:bg-slate-800">
+                    Users
+                </a>
+
+                <a href="#" class="block px-4 py-3 rounded-lg hover:bg-slate-800">
+                    Orders
+                </a>
+
+                <a href="#" class="block px-4 py-3 rounded-lg hover:bg-slate-800">
+                    Products
+                </a>
+
+                <a href="#" class="block px-4 py-3 rounded-lg hover:bg-slate-800">
+                    Settings
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <main class="flex-1 min-w-0">
+
+            <header class="h-16 bg-white border-b border-[#E2E8F0] px-4 md:px-8 flex items-center justify-between">
+
+                <button class="md:hidden text-xl">
+                    ☰
+                </button>
+
+                <div class="hidden sm:block border border-[#E2E8F0] rounded-lg px-4 py-2 text-sm text-[#64748B]">
+                    Search...
+                </div>
+
+                <div class="flex items-center gap-4">
+
+                    <span class="text-lg">
+                        ♧
+                    </span>
+
+                    <div class="w-8 h-8 bg-[#4F46E5] rounded-full text-white flex items-center justify-center text-sm">
+                        S
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="p-4 md:p-8">
+
+                <h1 class="text-2xl font-bold mb-6">
+                    Dashboard
+                </h1>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+                        <p class="text-sm font-medium text-[#64748B]">
+                            Total Revenue
+                        </p>
+                        <h2 class="text-[28px] font-bold mt-2">
+                            ₹1,24,532
+                        </h2>
+                        <p class="text-sm text-[#16A34A] mt-2">
+                            +12% from last month
+                        </p>
+                    </div>
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+                        <p class="text-sm font-medium text-[#64748B]">
+                            Total Orders
+                        </p>
+                        <h2 class="text-[28px] font-bold mt-2">
+                            892
+                        </h2>
+                        <p class="text-sm text-[#16A34A] mt-2">
+                            +8% from last month
+                        </p>
+                    </div>
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+                        <p class="text-sm font-medium text-[#64748B]">
+                            Active Users
+                        </p>
+                        <h2 class="text-[28px] font-bold mt-2">
+                            3,521
+                        </h2>
+                        <p class="text-sm text-[#16A34A] mt-2">
+                            +14% from last month
+                        </p>
+                    </div>
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+                        <p class="text-sm font-medium text-[#64748B]">
+                            Conversion Rate
+                        </p>
+                        <h2 class="text-[28px] font-bold mt-2">
+                            4.2%
+                        </h2>
+                        <p class="text-sm text-[#D97706] mt-2">
+                            +2% from last month
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 mb-6">
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+
+                        <div class="flex justify-between items-center mb-6">
+
+                            <h2 class="text-base font-semibold">
+                                Revenue Overview
+                            </h2>
+
+                            <span class="text-sm font-semibold">
+                                ₹1,24,532
+                            </span>
+
+                        </div>
+
+                        <div class="h-56 flex items-end gap-3">
+
+                            <div class="w-full h-[30%] bg-indigo-200 rounded-t"></div>
+                            <div class="w-full h-[40%] bg-indigo-200 rounded-t"></div>
+                            <div class="w-full h-[35%] bg-indigo-300 rounded-t"></div>
+                            <div class="w-full h-[55%] bg-indigo-300 rounded-t"></div>
+                            <div class="w-full h-[48%] bg-indigo-300 rounded-t"></div>
+                            <div class="w-full h-[65%] bg-indigo-400 rounded-t"></div>
+                            <div class="w-full h-[58%] bg-indigo-400 rounded-t"></div>
+                            <div class="w-full h-[80%] bg-[#4F46E5] rounded-t"></div>
+
+                        </div>
+
+                        <div class="flex justify-between text-xs text-[#64748B] mt-2">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Aug</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+
+                        <div class="flex justify-between items-center mb-4">
+
+                            <h2 class="text-base font-semibold">
+                                Recent Orders
+                            </h2>
+
+                            <a href="#" class="text-sm text-[#4F46E5]">
+                                View all
+                            </a>
+
+                        </div>
+
+                        <div class="overflow-x-auto">
+
+                            <table class="w-full text-sm">
+
+                                <thead class="text-[#64748B]">
+                                    <tr>
+                                        <th class="text-left py-2">Customer</th>
+                                        <th class="text-left py-2">Amount</th>
+                                        <th class="text-left py-2">Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Rahul Sharma</td>
+                                        <td class="py-3">₹2,499</td>
+                                        <td class="py-3 text-[#16A34A]">Delivered</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Priya Singh</td>
+                                        <td class="py-3">₹4,099</td>
+                                        <td class="py-3 text-[#D97706]">Pending</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Amit Kumar</td>
+                                        <td class="py-3">₹1,299</td>
+                                        <td class="py-3 text-[#4F46E5]">Shipped</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Neha Gupta</td>
+                                        <td class="py-3">₹3,799</td>
+                                        <td class="py-3 text-[#16A34A]">Delivered</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Sahil Verma</td>
+                                        <td class="py-3">₹5,499</td>
+                                        <td class="py-3 text-[#DC2626]">Cancelled</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+
+                        <h2 class="text-base font-semibold mb-5">
+                            Traffic Overview
+                        </h2>
+
+                        <p class="text-sm text-[#64748B]">
+                            Total Visitors
+                        </p>
+
+                        <h3 class="text-2xl font-bold mt-1">
+                            8,432
+                        </h3>
+
+                        <div class="h-40 flex items-end gap-4 mt-5">
+
+                            <div class="w-full h-[35%] bg-[#4F46E5] rounded-t"></div>
+                            <div class="w-full h-[45%] bg-[#4F46E5] rounded-t"></div>
+                            <div class="w-full h-[50%] bg-[#4F46E5] rounded-t"></div>
+                            <div class="w-full h-[40%] bg-[#4F46E5] rounded-t"></div>
+                            <div class="w-full h-[65%] bg-[#4F46E5] rounded-t"></div>
+                            <div class="w-full h-[75%] bg-[#4F46E5] rounded-t"></div>
+                            <div class="w-full h-[90%] bg-[#4F46E5] rounded-t"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bg-white border border-[#E2E8F0] rounded-xl p-5">
+
+                        <h2 class="text-base font-semibold mb-5">
+                            Top Products
+                        </h2>
+
+                        <div class="overflow-x-auto">
+
+                            <table class="w-full text-sm">
+
+                                <thead class="text-[#64748B]">
+                                    <tr>
+                                        <th class="text-left py-2">Product</th>
+                                        <th class="text-left py-2">Sales</th>
+                                        <th class="text-left py-2">Change</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Laptop Pro</td>
+                                        <td class="py-3">2,450</td>
+                                        <td class="py-3 text-[#16A34A]">+12%</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Wireless Earbuds</td>
+                                        <td class="py-3">1,892</td>
+                                        <td class="py-3 text-[#16A34A]">+8%</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Smart Watch</td>
+                                        <td class="py-3">1,203</td>
+                                        <td class="py-3 text-[#16A34A]">+6%</td>
+                                    </tr>
+
+                                    <tr class="border-t border-[#E2E8F0]">
+                                        <td class="py-3">Backpack</td>
+                                        <td class="py-3">902</td>
+                                        <td class="py-3 text-[#16A34A]">+4%</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
