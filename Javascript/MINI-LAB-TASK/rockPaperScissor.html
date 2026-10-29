@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #4b2678, #243b55);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: white;
+        }
+
+        .game {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            width: 380px;
+            max-width: 92%;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #ddd2ff;
+            margin-bottom: 28px;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            background: #ffffff;
+            color: #34205d;
+            border: none;
+            border-radius: 14px;
+            padding: 14px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d9c7ff;
+            transform: translateY(-5px);
+        }
+
+        #userChoice, #computerChoice {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: #ffe082;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game">
+        <h1>Rock Paper Scissors</h1>
+        <p class="subtitle">Choose your move and beat the computer!</p>
+
+        <div class="choices">
+            <button onclick="playGame('rock')">🪨<br>Rock</button>
+            <button onclick="playGame('paper')">📄<br>Paper</button>
+            <button onclick="playGame('scissors')">✂️<br>Scissors</button>
+        </div>
+
+        <p id="userChoice">Your choice: -</p>
+        <p id="computerChoice">Computer's choice: -</p>
+        <h3 id="result">Let's Play!</h3>
+    </div>
+
+    <script src="rockPaperScissor.js"></script>
+</body>
+</html>

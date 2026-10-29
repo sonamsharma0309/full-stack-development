@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Timer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #172554, #4338ca, #7c3aed);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .game {
+            width: 420px;
+            max-width: 90%;
+            padding: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid #ffffff40;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px #0004;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        #screen {
+            background: #facc15;
+            color: #422006;
+            padding: 55px 10px;
+            margin: 25px 0;
+            border-radius: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #screen.ready {
+            background: #22c55e;
+            color: white;
+        }
+
+        #screen.early {
+            background: #ef4444;
+            color: white;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #312e81;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ddd6fe;
+        }
+
+        #result {
+            color: #fde68a;
+            font-size: 18px;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game">
+        <h1>⚡ Reaction Timer</h1>
+        <p>Test how fast you can react!</p>
+
+        <div id="screen">Press Start to Play</div>
+
+        <button id="startBtn">Start Game</button>
+
+        <p id="result">Your reaction time will appear here.</p>
+    </div>
+
+    <script src="ReactionTimer.js"></script>
+</body>
+</html>

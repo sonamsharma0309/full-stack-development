@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole Game</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101828, #253b63, #49266d);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .game {
+            width: 430px;
+            max-width: 100%;
+            padding: 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.09);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 22px;
+            box-shadow: 0 15px 40px #0005;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .subtitle {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .levels {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .level {
+            flex: 1;
+            padding: 11px 5px;
+            border-radius: 9px;
+            background: #334155;
+            color: white;
+        }
+
+        .level.active {
+            background: #a78bfa;
+            color: #1e1b4b;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            flex: 1;
+            background: #111c35;
+            padding: 12px 5px;
+            border-radius: 12px;
+        }
+
+        .stat p {
+            color: #a5b4fc;
+            font-size: 13px;
+            margin: 0 0 8px;
+        }
+
+        .stat h2 {
+            margin: 0;
+            color: #facc15;
+            font-size: 25px;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            padding: 15px;
+            background: #18243c;
+            border-radius: 18px;
+        }
+
+        .hole {
+            height: 90px;
+            border-radius: 50%;
+            background: #080e1c;
+            box-shadow: inset 0 5px 8px #000a;
+            font-size: 43px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hole:hover {
+            background: #202c43;
+        }
+
+        .hole.mole {
+            background: #fef3c7;
+            box-shadow: 0 0 15px #facc15;
+            animation: pop 0.18s ease-out;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.7);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .start {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border-radius: 12px;
+            background: #a3e635;
+            color: #172554;
+            font-size: 17px;
+        }
+
+        .start:hover {
+            background: #bef264;
+            transform: translateY(-2px);
+        }
+
+        #message {
+            color: #e0e7ff;
+            min-height: 22px;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 380px) {
+            .game {
+                padding: 16px;
+            }
+
+            .hole {
+                height: 72px;
+                font-size: 35px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game">
+        <h1>🔨 Whack-a-Mole</h1>
+        <p class="subtitle">Catch the mole before it disappears!</p>
+
+        <div class="levels">
+            <button class="level active" data-level="easy">Easy</button>
+            <button class="level" data-level="medium">Medium</button>
+            <button class="level" data-level="hard">Hard</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <p>SCORE</p>
+                <h2 id="score">0</h2>
+            </div>
+
+            <div class="stat">
+                <p>TIME</p>
+                <h2 id="timer">30</h2>
+            </div>
+        </div>
+
+        <div class="board" id="board">
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+            <button class="hole"></button>
+        </div>
+
+        <button class="start" id="startBtn">▶ Start Game</button>
+
+        <p id="message">Choose your level and start playing!</p>
+    </div>
+
+    <script src="WhackaMole.js"></script>
+</body>
+</html>
