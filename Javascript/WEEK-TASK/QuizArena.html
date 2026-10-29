@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Quiz Arena</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #172554, #4338ca, #7e22ce);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1e293b;
+        }
+
+        .container {
+            width: 650px;
+            max-width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px #0004;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .heading h1 {
+            color: #4338ca;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #64748b;
+        }
+
+        .top-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .progress {
+            height: 9px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        #progressBar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            transition: width 0.3s;
+        }
+
+        .timer-box {
+            background: #eef2ff;
+            color: #4338ca;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        #timer {
+            color: #dc2626;
+        }
+
+        #question {
+            font-size: 21px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            text-align: left;
+            font-size: 15px;
+            background: #f8fafc;
+            color: #334155;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option:hover:not(:disabled) {
+            background: #eef2ff;
+            border-color: #818cf8;
+        }
+
+        .option:disabled {
+            cursor: default;
+        }
+
+        .option.correct {
+            background: #dcfce7;
+            border-color: #22c55e;
+            color: #166534;
+        }
+
+        .option.wrong {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+
+        #explanation {
+            display: none;
+            background: #f1f5f9;
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 18px;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .main-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 13px;
+            border: none;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #nextBtn, #restartBtn {
+            background: #4f46e5;
+            color: white;
+        }
+
+        #reviewBtn {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .main-btn:hover {
+            opacity: 0.85;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #resultScreen, #reviewScreen {
+            text-align: center;
+        }
+
+        #finalScore {
+            font-size: 42px;
+            color: #4f46e5;
+            margin: 20px;
+        }
+
+        #rating {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .review-item {
+            text-align: left;
+            padding: 15px;
+            margin: 12px 0;
+            background: #f8fafc;
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .review-item h3 {
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            #question {
+                font-size: 18px;
+            }
+
+            .heading h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heading">
+            <h1>⚡ JS Quiz Arena</h1>
+            <p>Test your JavaScript knowledge!</p>
+        </div>
+
+        <div id="quizScreen">
+            <div class="top-info">
+                <span id="progressText">Q 1/25</span>
+                <span>Score: <span id="score">0</span></span>
+            </div>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+            <div class="timer-box">
+                ⏱ Time Left: <span id="timer">30</span> seconds
+            </div>
+
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <div id="explanation"></div>
+
+            <div class="buttons">
+                <button class="main-btn" id="nextBtn">Next →</button>
+                <button class="main-btn" id="restartBtn">↻ Restart</button>
+            </div>
+        </div>
+
+        <div id="resultScreen" class="hidden">
+            <h2>🏆 Quiz Completed!</h2>
+            <div id="finalScore"></div>
+            <h3 id="rating"></h3>
+            <p id="resultMessage"></p>
+
+            <div class="buttons">
+                <button class="main-btn" id="reviewBtn">Review Wrong Answers</button>
+                <button class="main-btn" id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+
+        <div id="reviewScreen" class="hidden">
+            <h2>📝 Review Wrong Answers</h2>
+            <div id="wrongList"></div>
+
+            <div class="buttons">
+                <button class="main-btn" id="backBtn">Back to Results</button>
+                <button class="main-btn" id="reviewRestartBtn">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="QuizArena.js"></script>
+</body>
+</html>
